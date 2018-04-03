@@ -30,6 +30,7 @@ import { EpdPage } from '../pages/epd/epd';
 import { MedicijnenPage } from '../pages/medicijnen/medicijnen';
 import { AanvraagPage } from '../pages/aanvraag/aanvraag';
 import { ConsultklachtPage } from '../pages/consultklacht/consultklacht';
+import { MedicijnenModalPage } from '../pages/medicijnen-modal/medicijnen-modal';
 
 // Providers
 import { DataProvider } from '../providers/data/data';
@@ -98,7 +99,8 @@ export function createTranslateLoader(http: HttpClient) {
     EpdPage,
     MedicijnenPage,
     AanvraagPage,
-    ConsultklachtPage
+    ConsultklachtPage,
+    MedicijnenModalPage
   ],
   imports: [
     BrowserModule,
@@ -135,7 +137,8 @@ export function createTranslateLoader(http: HttpClient) {
     EpdPage,
     MedicijnenPage,
     AanvraagPage,
-    ConsultklachtPage
+    ConsultklachtPage,
+    MedicijnenModalPage
   ],
   providers: [
     StatusBar,

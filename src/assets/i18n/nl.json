@@ -11,13 +11,13 @@
     "EMAIL": "E-mail",
     "USERNAME": "Gebruikersnaam",
     "LOGIN": "Inloggen",
-    "EMERGENCY": "Spoed",
+    "EMERGENCY": "SPOED",
     "CALLDOCTOR": "Alarmeer huisarts",
 
     "SIGNUP": "Maak aan",
     "CREATEACCOUNT": "Account maken",
     "FORGOTPASSWORD": "Inlogcode vergeten?",
     "SENDCODETITLE": "Code verzonden",
-    "SENDCODESUBTITLE": "Inlogcode is verzonden naar je e-mail"
+    "SENDCODESUBTITLE": "De inlogcode is verzonden"
 
 }

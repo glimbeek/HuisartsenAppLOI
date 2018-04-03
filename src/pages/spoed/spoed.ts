@@ -42,20 +42,20 @@ export class SpoedPage {
 
   showAlert() {
     let alert = this.alertCtrl.create({
-      title: 'Alarmeer huisarts',
-      message: 'LET OP! U staat op het punt een noodoproep te doen. Misbruik resulteert in uitschakeling van deze functie.',
+      title: 'LET OP!',
+      message: 'U staat op het punt een noodoproep te doen. Misbruik resulteert in uitschakeling van deze functie.',
       buttons: [
         {
-          text: 'NIET LEVENSBEDREIGEND, MAAR WEL SPOEDEISEND',
           role: 'cancel',
-          handler: () => {
-            this.navCtrl.push(VervolgschermPage);
-          }
-        },
-        {
           text: 'LEVENSBEDREIGENDE SITUATIE',
           handler: () => {
             this.navCtrl.push(TelefoonPage);
+          }
+        },
+        {
+          text: 'NIET LEVENSBEDREIGEND, MAAR WEL SPOEDEISEND',
+          handler: () => {
+            this.navCtrl.push(VervolgschermPage);
           }
         }
       ]

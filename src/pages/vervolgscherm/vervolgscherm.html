@@ -17,8 +17,8 @@
 
   <ion-list>
     <ion-item>
-      <ion-label>(Vermoedelijk) letsel</ion-label>
-      <ion-select [(ngModel)]="letsel" interface="popover">
+      <ion-label>(Vermoedelijk) letsel:</ion-label>
+      <ion-select [(ngModel)]="letsel" cancelText="Annuleren" okText="Opslaan">
         <ion-option value="0">Maak een keuze….</ion-option>
         <ion-option value="1">Botbreuk of ernstige verstuiking/kneuzing</ion-option>
         <ion-option value="2">Bloeding</ion-option>

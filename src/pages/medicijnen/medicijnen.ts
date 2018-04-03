@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DataProvider } from './../../providers/data/data';
 import { ActionSheetController } from 'ionic-angular';
+
+import { MedicijnenModalPage } from '../medicijnen-modal/medicijnen-modal';
 
 /**
  * Generated class for the MedicijnenPage page.
@@ -18,11 +20,13 @@ import { ActionSheetController } from 'ionic-angular';
 export class MedicijnenPage {
 
   items: any;
+  myParam = '';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public dataService: DataProvider,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
 
   }
 
@@ -32,22 +36,27 @@ export class MedicijnenPage {
     
   }
 
-  presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
-      buttons: [
-        {
-          text: 'Bijsluiter',
-        },{
-          text: 'Nieuw recept aanvragen',
+  // presentActionSheet() {
+  //   let actionSheet = this.actionSheetCtrl.create({
+  //     buttons: [
+  //       {
+  //         text: 'Bijsluiter',
+  //       },{
+  //         text: 'Nieuw recept aanvragen',
 
-        },{
-          text: 'Vraag stellen over gebruik',
-        },{
-          text: 'FAQ',
-        }
-      ]
-    });
-    actionSheet.present();
+  //       },{
+  //         text: 'Vraag stellen over gebruik',
+  //       },{
+  //         text: 'FAQ',
+  //       }
+  //     ]
+  //   });
+  //   actionSheet.present();
+  // }
+
+  openModalWithParams() {
+    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'myParam': this.myParam });
+    myModal.present();
   }
 
 }

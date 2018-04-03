@@ -1,16 +1,16 @@
 <!--
-  Generated template for the MedicijnenPage page.
+  Generated template for the MedicijnenModalPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
-
-  Mijn medicijnen: scherm met de medicijnen die de patiënt gebruikt. Achter elk medicijn deze knoppen:
-
 -->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Mijn medicijnen</ion-title>
+  <ion-buttons start>
+    <button ion-button (click)="dismiss()">Terug</button>
+  </ion-buttons>
+    <ion-title>{{titleParam}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,20 +19,20 @@
 <ion-content padding>
 
   <ion-list>
-    <button ion-item clear block (click)="openModalWithParams()">
-      Paracetamol
+    <button ion-item>
+      Bijsluiter
       <ion-icon item-end md="md-arrow-forward"></ion-icon>
     </button>
-    <button ion-item  clear block (click)="presentActionSheet()">
-      Oxazepam
+    <button ion-item>
+      Nieuw recept aanvragen
       <ion-icon item-end md="md-arrow-forward"></ion-icon>
     </button>
-    <button ion-item clear block (click)="presentActionSheet()">
-      Xanax
+    <button ion-item>
+      Vraag stellen over gebruik
       <ion-icon item-end md="md-arrow-forward"></ion-icon>
     </button>
-    <button ion-item clear block (click)="presentActionSheet()">
-      Codïene
+    <button ion-item>
+      FAQ
       <ion-icon item-end md="md-arrow-forward"></ion-icon>
     </button>
   </ion-list>
