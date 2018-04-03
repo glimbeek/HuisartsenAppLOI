@@ -19,9 +19,6 @@ import { MedicijnenModalPage } from '../medicijnen-modal/medicijnen-modal';
 })
 export class MedicijnenPage {
 
-  items: any;
-  myParam = '';
-
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public dataService: DataProvider,
@@ -54,8 +51,23 @@ export class MedicijnenPage {
   //   actionSheet.present();
   // }
 
-  openModalWithParams() {
-    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'myParam': this.myParam });
+  openModalParacetamol() {
+    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'titleParam': "Paracetamol" });
+    myModal.present();
+  }
+
+  openModalOxazepam() {
+    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'titleParam': "Oxazepam" });
+    myModal.present();
+  }
+
+  openModalXanax() {
+    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'titleParam': "Xanax" });
+    myModal.present();
+  }
+
+  openModalCodiene() {
+    let myModal = this.modalCtrl.create(MedicijnenModalPage, { 'titleParam': "Codïene" });
     myModal.present();
   }
 
