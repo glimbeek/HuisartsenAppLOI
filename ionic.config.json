@@ -1,0 +1,8 @@
+{
+  "name": "com.Huisartsen.app",
+  "app_id": "4cb41011",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

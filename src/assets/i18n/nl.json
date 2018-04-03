@@ -1,0 +1,23 @@
+{
+    "TABSNAV": {
+        "HOME": "Home",
+        "HELP": "Help",
+        "PROFILE": "Profiel"
+    },
+    "BACK_BUTTON_TEXT": "Terug",
+
+    "NAME": "Naam",
+    "PASSWORD": "Inlogcode",
+    "EMAIL": "E-mail",
+    "USERNAME": "Gebruikersnaam",
+    "LOGIN": "Inloggen",
+    "EMERGENCY": "Spoed",
+    "CALLDOCTOR": "Alarmeer huisarts",
+
+    "SIGNUP": "Maak aan",
+    "CREATEACCOUNT": "Account maken",
+    "FORGOTPASSWORD": "Inlogcode vergeten?",
+    "SENDCODETITLE": "Code verzonden",
+    "SENDCODESUBTITLE": "Inlogcode is verzonden naar je e-mail"
+
+}

@@ -1,0 +1,24 @@
+{    
+    "TABSNAV": {
+        "HOME": "Home",
+        "HELP": "Help",
+        "PROFILE": "Profile"
+    },
+
+    "BACK_BUTTON_TEXT": "Back",
+
+    "NAME": "Name",
+    "PASSWORD": "Login code",
+    "EMAIL": "Email",
+    "USERNAME": "Username",
+    "LOGIN": "Sign in",
+    "EMERGENCY": "Emergency",
+    "CALLDOCTOR": "Notify doctor",
+
+    "SIGNUP": "Create it",
+    "CREATEACCOUNT": "Create account",
+    "FORGOTPASSWORD": "Forgot code?",
+    "SENDCODETITLE": "Code send",
+    "SENDCODESUBTITLE": "Login code has been send to your email"
+
+}

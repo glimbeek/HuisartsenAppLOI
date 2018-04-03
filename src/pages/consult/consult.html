@@ -1,0 +1,56 @@
+<!--
+  Generated template for the ConsultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+  Consultaanvraag: venster met een kalender. 
+  Als er op een datum wordt geklikt, 
+  ziet de gebruiker een agendaweergave (verticaal) met beschikbare momenten. 
+  Ook moet er de keuzemogelijkheid zijn: kort of lang consult, 
+  zodat alleen de passende beschikbare ruimtes getoond worden. 
+  Als op een vrij moment geklikt wordt, kan de gebruiker de klacht invullen en op Inplannen klikken.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{viewTitle}}</ion-title>
+    <ion-buttons end>
+        <button ion-button [disabled]="isToday" (click)="today()" color="default">Vandaag</button>
+        <!-- <button ion-button (click)="changeMode('month')">M</button> -->
+        <!-- <button ion-button (click)="changeMode('week')">W</button> -->
+        <!-- <button ion-button (click)="changeMode('day')">D</button> -->
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <calendar
+    startingDayWeek="5"
+    [locale]="calendar.locale"
+    [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onRangeChanged)="reloadSource(startTime, endTime)"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    step="30">
+  </calendar>
+
+</ion-content>
+
+<ion-footer text-center>
+  <ion-toolbar>
+    <h6>Consult aanvragen</h6>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="doAanvraag()">
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,68 @@
+<!--
+  Generated template for the AanvraagPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Aanvraag maken</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+
+    <ion-label>Type consult:</ion-label>
+
+    <ion-select (ionChange)="doConsult($event)" interface="popover">
+      <ion-option value="kort">Korst consult</ion-option>
+      <ion-option value="lang">Lang consult</ion-option>
+    </ion-select>
+
+  </ion-item>
+
+  <div *ngIf="showMeKort">
+    <ion-list>
+
+      <ion-label>Beschikbare tijden:</ion-label>
+      <button ion-item clear block (click)="doConsultKlacht()">
+        <ion-icon item-start name="e" class="tijd">09:00</ion-icon>
+        <h2>Consult duur 10 minuten.</h2>
+        <ion-icon item-end name="arrow-round-forward"></ion-icon>
+      </button>
+
+      <button ion-item clear block (click)="doConsultKlacht()">
+        <ion-icon item-start name="e" class="tijd">09:00</ion-icon>
+        <h2>Consult duur 10 minuten.</h2>
+        <ion-icon item-end name="arrow-round-forward"></ion-icon>
+      </button>
+
+    </ion-list>
+</div>
+
+  <div *ngIf="showMeLang">
+    <ion-list>
+
+      <ion-label>Beschikbare tijden:</ion-label>
+
+      <button ion-item clear block (click)="doConsultKlacht()">
+        <ion-icon item-start name="e" class="tijd">14:15</ion-icon>
+        <h2>Consult duur 30 minuten.</h2>
+        <ion-icon item-end name="arrow-round-forward"></ion-icon>
+      </button>
+
+      <button ion-item clear block (click)="doConsultKlacht()">
+        <ion-icon item-start name="e" class="tijd">14:45</ion-icon>
+        <h2>Consult duur 30 minuten.</h2>
+        <ion-icon item-end name="arrow-round-forward"></ion-icon>
+      </button>
+
+    </ion-list>
+  </div>
+
+</ion-content>

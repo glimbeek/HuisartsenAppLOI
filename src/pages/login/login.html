@@ -1,0 +1,45 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'LOGIN' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <!-- <ion-item>
+      <ion-label floating>{{ 'EMAIL' | translate }} / {{ 'USERNAME' | translate }}</ion-label>
+      <ion-input type="email" name="email"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+      <ion-input type="password" name="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block (click)="doLogin()">{{ 'LOGIN' | translate }}</button>
+  </div>
+
+  <button ion-button clear float-left small (click)="doSignUp()">{{ 'CREATEACCOUNT' | translate }}</button> <button ion-button clear float-right small (click)="doForgotCode()">{{ 'FORGOTPASSWORD' | translate }}</button>
+
+  <ion-footer text-center>
+    <ion-toolbar>
+      <ion-title></ion-title>
+      <button ion-button color="danger" (click)="doEmergency()">{{ 'EMERGENCY' | translate }}</button>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>

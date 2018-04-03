@@ -1,0 +1,45 @@
+<!--
+  Generated template for the VervolgschermPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Niet levensbedreigend</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>(Vermoedelijk) letsel</ion-label>
+      <ion-select [(ngModel)]="letsel" interface="popover">
+        <ion-option value="0">Maak een keuze….</ion-option>
+        <ion-option value="1">Botbreuk of ernstige verstuiking/kneuzing</ion-option>
+        <ion-option value="2">Bloeding</ion-option>
+        <ion-option value="3">Ernstige val</ion-option>
+        <ion-option value="4">Hoofdletsel</ion-option>
+        <ion-option value="5">Verbranding</ion-option>
+        <ion-option value="6">Overdosis of vergiftiging</ion-option>
+        <ion-option value="7">Bewusteloosheid</ion-option>
+        <ion-option value="8">Hersenletsel</ion-option>
+        <ion-option value="9">Onbekend en niet te achterhalen</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label text-wrap>Het slachtoffer heeft alcohol en/of drugs gebruikt.</ion-label>
+        <ion-toggle></ion-toggle>
+    </ion-item>
+
+  </ion-list> 
+
+  <button ion-button text-wrap (click)="doHuisArtsenPost()">Het slachtoffer is mobiel en kan vervoer regelen</button>
+  <button ion-button text-wrap (click)="doPatientLocatie()">Het slachtoffer is niet mobiel en/of kan geen vervoer regelen</button>
+
+</ion-content>
