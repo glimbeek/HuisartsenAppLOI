@@ -33,7 +33,7 @@ export class ProfielPage {
               public storageProvider: StorageProvider,
               private camera: Camera) {
 
-    this.avatarSource = "../../assets/imgs/patient-avatar.png";
+    
 
   }
 
@@ -49,12 +49,18 @@ export class ProfielPage {
 
   
   loadProfilePic() {
-    this.key = "name";
+    this.key = "profilepicture";
 
     this.storageProvider.getData(this.key).then((value) => {
-      console.log('Profile picture: ', value )
 
-      this.profilePicture = value;
+        if (!value) {
+          console.log('No profile picture in local storage.');
+          this.profilePicture = "../../assets/imgs/patient-avatar.png";
+        }
+        else {
+          console.log('Profile picture: ', value )
+          this.profilePicture = value;
+        }
     });
   }
 
@@ -89,7 +95,25 @@ export class ProfielPage {
   }
 
   doProfilePicChange() {
+    this.key = "profilepicture";
+
     console.log('Changed the profile pic!');
+
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.profilePicture = 'data:image/jpeg;base64,' + imageData;
+     this.storageProvider.setData(this.key, this.profilePicture)
+    }, (err) => {
+     // Handle error
+    });
   }
 
 
@@ -111,7 +135,8 @@ export class ProfielPage {
     this.camera.getPicture(options).then((imageData) => {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64:
-     this.myphoto = 'data:image/jpeg;base64,' + imageData;
+     this.profilePicture = 'data:image/jpeg;base64,' + imageData;
+    //  this.storageProvider.setData()
     }, (err) => {
      // Handle error
     });
