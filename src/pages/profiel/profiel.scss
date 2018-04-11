@@ -1,3 +1,44 @@
 page-profiel {
 
+    .profile {
+        margin-top: 15px;
+
+    }
+
+    .profilePic {    
+        margin: auto;
+        width: 50%;
+        max-width: 140px;
+        height: 140px;
+        top: 5%;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .profilePic > img {
+        border-radius: 50%;
+    }
+
+    .picEdit {
+        position: absolute;
+        background: #54A7FF;
+        padding: 10px;
+        color: #fff;
+        border-radius: 100%;
+    }
+    
+
+    .user-name {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 15px 0 5px 0;
+        color: darkslategray;
+    }
+    .user-email {
+        color: grey;
+        font-size: 12px;
+        padding: 10px
+    }
+
+
 }

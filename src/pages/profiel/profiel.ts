@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Storage } from '@ionic/storage';
+import { StorageProvider } from '../../providers/storage/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the ProfielPage page.
@@ -17,22 +18,104 @@ import { Storage } from '@ionic/storage';
 })
 export class ProfielPage {
 
+  key:string;
+  value:any;
+  profilePicture: any;
+  userName: string;
+  avatarSource: any;
+  emailAddress: string;
+  loginCode: string;
+  messageString: string;
+  myphoto: any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private storage: Storage) {
+              public storageProvider: StorageProvider,
+              private camera: Camera) {
 
-  // set a key/value
-  storage.set('name', 'Max');
-
-  // Or to get a key/value pair
-  storage.get('age').then((val) => {
-    console.log('Your age is', val);
-  });
+    this.avatarSource = "../../assets/imgs/patient-avatar.png";
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfielPage');
+
+    this.loadProfilePic();
+    this.loadUsername();
+    this.loadEmailAdress();
+    this.loadLoginCode();
+
+  }
+
+  
+  loadProfilePic() {
+    this.key = "name";
+
+    this.storageProvider.getData(this.key).then((value) => {
+      console.log('Profile picture: ', value )
+
+      this.profilePicture = value;
+    });
+  }
+
+  loadUsername() {
+    this.key = "name";
+
+    this.storageProvider.getData(this.key).then((value) => {
+      console.log('Username: ', value )
+
+      this.userName = value;
+    });
+  }
+
+  loadEmailAdress() {
+    this.key = "email";
+
+    this.storageProvider.getData(this.key).then((value) => {
+      console.log('Emailadress: ', value )
+
+      this.emailAddress = value;
+    });
+  }
+
+  loadLoginCode() {
+    this.key = "logincode";
+
+    this.storageProvider.getData(this.key).then((value) => {
+      console.log('Logincode:  ', value )
+
+      this.loginCode = value;
+    });
+  }
+
+  doProfilePicChange() {
+    console.log('Changed the profile pic!');
+  }
+
+
+  doBlur(event,data) {
+    this.storageProvider.setData(event, data)
+  }
+
+
+  doPhoto() {
+    console.log('Lets take a photo!');
+
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.myphoto = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
+    });
+
   }
 
 }

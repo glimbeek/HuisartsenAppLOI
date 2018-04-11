@@ -2,6 +2,7 @@ import { Component, } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav, AlertController  } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
+import { StorageProvider } from '../../providers/storage/storage';
 
 import { TabsPage } from '../../pages/tabs/tabs';
 import { SignupPage } from '../../pages/signup/signup';
@@ -21,14 +22,19 @@ import { SpoedPage } from '../../pages/spoed/spoed';
 })
 export class LoginPage {
 
-  sendCodeTitle = "";
-  sendCodeSubTitle = "";
+  // sendCodeTitle = "";
+  // sendCodeSubTitle = "";
+  password: string;
+  loginCode: string;
+  key: string;
+  showMe = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public nav: Nav,
               public translateService: TranslateService,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public storageProvider: StorageProvider) {
   }
 
   ionViewDidLoad() {
@@ -36,7 +42,22 @@ export class LoginPage {
   }
 
   doLogin() {
-      this.nav.setRoot(TabsPage);
+    this.key = "logincode";
+
+    this.storageProvider.getData(this.key).then((value) => {
+      console.log('Logincode from form:  ', this.password )
+      console.log('Logincode from storage:  ', value )
+
+      this.loginCode = value;
+      if (this.loginCode == this.password) {
+        this.nav.setRoot(TabsPage);
+      } else {
+        console.log('Failed to log on.')
+        this.showMe = true;
+      }
+    });
+    
+    
   }
 
   doSignUp() {

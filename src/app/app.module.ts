@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -35,6 +34,9 @@ import { MedicijnenModalPage } from '../pages/medicijnen-modal/medicijnen-modal'
 
 // Providers
 import { DataProvider } from '../providers/data/data';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StorageProvider } from '../providers/storage/storage';
+import { Camera } from '@ionic-native/camera';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -146,7 +148,10 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    DataProvider,
+    SplashScreen,
+    StorageProvider,
+    Camera
   ]
 })
 export class AppModule {}

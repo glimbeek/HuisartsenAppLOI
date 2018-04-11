@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 
 import { LoginPage } from '../pages/login/login';
+import { StorageProvider } from '../providers/storage/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +13,11 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   rootPage:any = LoginPage;
 
-  constructor(private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private translate: TranslateService) {
+  constructor(private platform: Platform,
+              statusBar: StatusBar,
+              splashScreen: SplashScreen,
+              private translate: TranslateService,
+              public storageProvider: StorageProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -21,6 +26,9 @@ export class MyApp {
 
       // This language will be used as a fallback when a translation isn't found in the current language
       this.initTranslate();
+
+
+      this.setLoginCode();
     });
   }
 
@@ -37,6 +45,10 @@ export class MyApp {
     else {
       this.translate.use(this.platform.lang());
     }
+  }
+
+  setLoginCode() {
+    this.storageProvider.setData('logincode', '1234');
   }
   
 }

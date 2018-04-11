@@ -15,4 +15,34 @@
 
 <ion-content padding>
 
+  <div text-center>
+     
+    <div class="profile" (click)="doProfilePicChange()">
+        <h1>{{userName}}</h1>
+        <ion-icon name="create" class="picEdit"></ion-icon>
+        <img class="profilePic"src="{{avatarSource}}">  
+        
+    </div>
+
+    <ion-item>
+        <ion-input name="name" [(ngModel)]="userName" (ionBlur)="doBlur($event.ngControl.name,$event.value)"></ion-input>
+        <ion-icon name="person" item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+        <ion-input name="email" [(ngModel)]="emailAddress" (ionBlur)="doBlur($event.ngControl.name,$event.value)"></ion-input>
+        <ion-icon name="mail" item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+        <ion-input name="logincode" [(ngModel)]="loginCode" (ionBlur)="doBlur($event.ngControl.name,$event.value)"></ion-input>
+        <ion-icon name="lock" item-start></ion-icon>
+    </ion-item>
+
+  </div>
+
+  <button ion-button (click)="doPhoto()">Take Photo</button>
+
+  <p><img src="{{myphoto}}"></p>
+
 </ion-content>
