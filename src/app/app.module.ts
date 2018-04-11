@@ -7,6 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgCalendarModule  } from 'ionic2-calendar';
+import { IonicStorageModule } from '@ionic/storage';
 
 // Pages
 import { MyApp } from './app.component';
@@ -107,6 +108,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     NgCalendarModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
