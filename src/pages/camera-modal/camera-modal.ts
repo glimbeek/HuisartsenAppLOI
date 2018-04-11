@@ -30,6 +30,10 @@ export class CameraModalPage {
     console.log('ionViewDidLoad CameraModalPage');
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
   doTakePhoto() {
     this.key = "profilepicture";
 
