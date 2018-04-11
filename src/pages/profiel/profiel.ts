@@ -1,4 +1,3 @@
-import { CameraModalPage } from './../camera-modal/camera-modal';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { StorageProvider } from '../../providers/storage/storage';
