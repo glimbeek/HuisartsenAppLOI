@@ -78,4 +78,29 @@ export class CameraModalPage {
     });
   }
 
+  doCropImage() {
+    this.key = "profilepicture";
+
+    console.log('Changed the profile pic!');
+
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum:false,
+      allowEdit:true,
+      targetWidth: 300,
+      targetHeight: 300
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.profilePicture = 'data:image/jpeg;base64,' + imageData;
+     this.storageProvider.setData(this.key, this.profilePicture)
+    }, (err) => {
+     // Handle error
+    });
+  }
+
 }
