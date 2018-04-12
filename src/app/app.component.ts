@@ -27,8 +27,6 @@ export class MyApp {
       // This language will be used as a fallback when a translation isn't found in the current language
       this.initTranslate();
 
-
-      this.setLoginCode();
     });
   }
 
