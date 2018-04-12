@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { StorageProvider } from '../../providers/storage/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-import { CameraModalPage } from '../camera-modal/camera-modal';
-
 /**
  * Generated class for the ProfielPage page.
  *
@@ -26,8 +24,6 @@ export class ProfielPage {
   avatarSource: any;
   emailAddress: string;
   loginCode: string;
-  messageString: string;
-  myphoto: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -102,29 +98,6 @@ export class ProfielPage {
 
   doProfilePicChange() {
 
-      // let myModal = this.modalCtrl.create(CameraModalPage);
-      // myModal.present();
-    
-
-    // this.key = "profilepicture";
-
-    // console.log('Changed the profile pic!');
-
-    // const options: CameraOptions = {
-    //   quality: 70,
-    //   destinationType: this.camera.DestinationType.DATA_URL,
-    //   encodingType: this.camera.EncodingType.JPEG,
-    //   mediaType: this.camera.MediaType.PICTURE
-    // }
-    
-    // this.camera.getPicture(options).then((imageData) => {
-    //  // imageData is either a base64 encoded string or a file URI
-    //  // If it's base64:
-    //  this.profilePicture = 'data:image/jpeg;base64,' + imageData;
-    //  this.storageProvider.setData(this.key, this.profilePicture)
-    // }, (err) => {
-    //  // Handle error
-    // });
     this.key = "profilepicture";
 
     console.log('Changed the profile pic!');
@@ -153,28 +126,6 @@ export class ProfielPage {
 
   doBlur(event,data) {
     this.storageProvider.setData(event, data)
-  }
-
-
-  doPhoto() {
-    console.log('Lets take a photo!');
-
-    const options: CameraOptions = {
-      quality: 70,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    }
-    
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64:
-     this.profilePicture = 'data:image/jpeg;base64,' + imageData;
-    //  this.storageProvider.setData()
-    }, (err) => {
-     // Handle error
-    });
-
   }
 
 }

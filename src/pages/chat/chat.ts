@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StorageProvider } from '../../providers/storage/storage';
 
 /**
  * Generated class for the ChatPage page.
@@ -15,11 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChatPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  key:string;
+  profilePicture: any;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public storageProvider: StorageProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
+  }
+
+  loadProfilePic() {
+    this.key = "profilepicture";
+
+    this.storageProvider.getData(this.key).then((value) => {
+
+        if (!value) {
+          console.log('No profile picture in local storage.');
+          this.profilePicture = "../../assets/imgs/patient-avatar.png";
+        }
+        else {
+          console.log('Profile picture: ', value )
+          this.profilePicture = value;
+        }
+    });
   }
 
 }
