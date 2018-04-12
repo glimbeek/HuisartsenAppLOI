@@ -102,8 +102,8 @@ export class ProfielPage {
 
   doProfilePicChange() {
 
-      let myModal = this.modalCtrl.create(CameraModalPage);
-      myModal.present();
+      // let myModal = this.modalCtrl.create(CameraModalPage);
+      // myModal.present();
     
 
     // this.key = "profilepicture";
@@ -125,6 +125,29 @@ export class ProfielPage {
     // }, (err) => {
     //  // Handle error
     // });
+    this.key = "profilepicture";
+
+    console.log('Changed the profile pic!');
+
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      cameraDirection: 1,
+      allowEdit:true,
+      targetWidth: 150,
+      targetHeight: 150
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.profilePicture = 'data:image/jpeg;base64,' + imageData;
+     this.storageProvider.setData(this.key, this.profilePicture)
+    }, (err) => {
+     // Handle error
+    });
   }
 
 
