@@ -104,8 +104,8 @@ export class ProfielPage {
       mediaType: this.camera.MediaType.PICTURE,
       cameraDirection: 1,
       allowEdit:true,
-      targetWidth: 150,
-      targetHeight: 150
+      targetWidth: 100,
+      targetHeight: 100
     }
     
     this.camera.getPicture(options).then((imageData) => {
