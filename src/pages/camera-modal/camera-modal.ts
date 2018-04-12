@@ -44,7 +44,10 @@ export class CameraModalPage {
       quality: 70,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit:true,
+      targetWidth: 150,
+      targetHeight: 150
     }
     
     this.camera.getPicture(options).then((imageData) => {
