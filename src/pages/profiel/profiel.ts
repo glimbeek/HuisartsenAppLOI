@@ -38,18 +38,13 @@ export class ProfielPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfielPage');
 
-    // this.loadProfilePic();
+    this.loadProfilePic();
     this.loadUsername();
     this.loadEmailAdress();
     this.loadLoginCode();
 
   }
 
-
-  ionViewDidEnter() {
-    this.loadProfilePic();
-  }
-  
   loadProfilePic() {
     this.key = "profilepicture";
 

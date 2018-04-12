@@ -46,10 +46,6 @@ export class MyApp {
       this.translate.use(this.platform.lang());
     }
   }
-
-  setLoginCode() {
-    this.storageProvider.setData('logincode', '1234');
-  }
   
 }
 

@@ -26,6 +26,7 @@ export class ChatPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
+    this.loadProfilePic();
   }
 
   loadProfilePic() {
