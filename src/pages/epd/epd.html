@@ -15,8 +15,8 @@
 
 <ion-content padding>
   <ion-list inset>
-    <h3>Ruw JSON data:</h3>
-    <li *ngFor="let obj of users">{{obj | json}}</li>
+    <h3>JSON data van URL:</h3>
+    <p>https://jsonplaceholder.typicode.com/users</p>
     <ion-item *ngFor="let user of users">
       <h2>{{user.name}}</h2>
       <p>{{user.email}}</p>
