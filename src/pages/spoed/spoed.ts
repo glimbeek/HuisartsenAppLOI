@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Nav } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { CallNumber } from '@ionic-native/call-number';
 
 import { TelefoonPage } from '../../pages/telefoon/telefoon';
 import { VervolgschermPage } from '../../pages/vervolgscherm/vervolgscherm';
@@ -25,6 +26,7 @@ export class SpoedPage {
               public navParams: NavParams,
               public translateService: TranslateService,
               public alertCtrl: AlertController,
+              public callNumber: CallNumber,
               public nav: Nav) {
 
 
@@ -49,7 +51,9 @@ export class SpoedPage {
           role: 'cancel',
           text: 'LEVENSBEDREIGENDE SITUATIE',
           handler: () => {
-            this.navCtrl.push(TelefoonPage);
+            this.callNumber.callNumber("221", true)
+            .then(res => console.log('Launched dialer!', res))
+            .catch(err => console.log('Error launching dialer', err));
           }
         },
         {
