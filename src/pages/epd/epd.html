@@ -14,5 +14,12 @@
 
 
 <ion-content padding>
-  <p>EPD</p>
+  <ion-list inset>
+    <h3>Ruw JSON data:</h3>
+    <li *ngFor="let obj of users">{{obj | json}}</li>
+    <ion-item *ngFor="let user of users">
+      <h2>{{user.name}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -40,6 +40,7 @@ import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from '@agm/core';
 import { CallNumber } from '@ionic-native/call-number';
+import { RestProvider } from '../providers/rest/rest';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -160,7 +161,8 @@ export function createTranslateLoader(http: HttpClient) {
     StorageProvider,
     Camera,
     Geolocation,
-    CallNumber
+    CallNumber,
+    RestProvider
   ]
 })
 export class AppModule {}
