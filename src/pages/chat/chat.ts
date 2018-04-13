@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StorageProvider } from '../../providers/storage/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the ChatPage page.
@@ -21,6 +22,7 @@ export class ChatPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              private camera: Camera,
               public storageProvider: StorageProvider) {
   }
 
@@ -43,6 +45,16 @@ export class ChatPage {
           this.profilePicture = value;
         }
     });
+  }
+
+  doLoadCamera() {
+    console.log('Started the camera.');
+    const options: CameraOptions = {
+      quality: 70,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+    }    
   }
 
 }

@@ -37,6 +37,8 @@ import { DataProvider } from '../providers/data/data';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StorageProvider } from '../providers/storage/storage';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+import { AgmCoreModule } from '@agm/core';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -80,6 +82,7 @@ export function createTranslateLoader(http: HttpClient) {
  * 
  */
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -107,6 +110,9 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAr3SZit3mMmAcFbZ3bNKhNMX5DZ_yaeCU' //Dit is de key van me verbruiksmanagerapp.. de Key voor dit project AIzaSyCHlshV5TqgOUuTlCqVffFg9Nx89beKJ38 doet het niet...
+    }),
     HttpClientModule,
     NgCalendarModule,
     IonicModule.forRoot(MyApp),
@@ -151,7 +157,8 @@ export function createTranslateLoader(http: HttpClient) {
     DataProvider,
     SplashScreen,
     StorageProvider,
-    Camera
+    Camera,
+    Geolocation
   ]
 })
 export class AppModule {}

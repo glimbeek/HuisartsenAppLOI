@@ -67,10 +67,16 @@
 </ion-content>
 
 <ion-footer>
-  <ion-item id="rounded">
-    <ion-input type="text" value="" placeholder="Bericht..."></ion-input>
-    <div class="buttons" item-right>
-      <button ion-button>Verzend</button>
-    </div>
-  </ion-item>
+
+    <ion-item id="rounded">
+        <div item-left>
+            <button ion-button clear large (click)="doLoadCamera()" class="camera-button">
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </div>
+        <ion-input type="text" value="" placeholder="Bericht..."></ion-input>
+        <div item-right>
+            <button ion-button>Verzend</button>
+        </div>
+    </ion-item>
 </ion-footer>
