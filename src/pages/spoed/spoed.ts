@@ -49,7 +49,7 @@ export class SpoedPage {
           text: 'LEVENSBEDREIGENDE SITUATIE',
           handler: () => {
             setTimeout(() => {
-              let tel = '12345678890';
+              let tel = '221';
               window.open(`tel:${tel}`, '_system');
             },100);
           }
