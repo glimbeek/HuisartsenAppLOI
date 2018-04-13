@@ -22,7 +22,6 @@
     "@angular/http": "5.2.9",
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
-    "@ionic-native/call-number": "^4.7.0",
     "@ionic-native/camera": "^4.7.0",
     "@ionic-native/core": "4.5.3",
     "@ionic-native/geolocation": "^4.7.0",
