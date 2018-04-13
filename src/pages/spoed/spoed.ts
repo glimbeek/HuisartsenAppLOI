@@ -48,7 +48,6 @@ export class SpoedPage {
       message: 'U staat op het punt een noodoproep te doen. Misbruik resulteert in uitschakeling van deze functie.',
       buttons: [
         {
-          role: 'cancel',
           text: 'LEVENSBEDREIGENDE SITUATIE',
           handler: () => {
             this.callNumber.callNumber("221", true)
