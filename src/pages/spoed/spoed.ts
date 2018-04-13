@@ -65,4 +65,11 @@ export class SpoedPage {
     });
     alert.present();
   }
+
+
+  doBell() {
+    this.callNumber.callNumber("221", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
 }
