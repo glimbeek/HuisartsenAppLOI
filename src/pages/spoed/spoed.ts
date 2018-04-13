@@ -73,6 +73,12 @@ export class SpoedPage {
     this.callNumber.callNumber("221", true)
     .then(res => this.presentToast('Launched dialer!' + res))
     .catch(err => this.presentToast('Error launching dialer' + err));
+
+
+    setTimeout(() => {
+      let tel = '12345678890';
+      window.open(`tel:${tel}`, '_system');
+    },100);
   }
 
   presentToast(value) {
