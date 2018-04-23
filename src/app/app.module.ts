@@ -112,7 +112,8 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAr3SZit3mMmAcFbZ3bNKhNMX5DZ_yaeCU' //Dit is de key van me verbruiksmanagerapp.. de Key voor dit project AIzaSyCHlshV5TqgOUuTlCqVffFg9Nx89beKJ38 doet het niet...
+      apiKey: 'AIzaSyAr3SZit3mMmAcFbZ3bNKhNMX5DZ_yaeCU', //Dit is de key van me verbruiksmanagerapp.. de Key voor dit project AIzaSyCHlshV5TqgOUuTlCqVffFg9Nx89beKJ38 doet het niet...
+      libraries: ["places"]
     }),
     HttpClientModule,
     NgCalendarModule,

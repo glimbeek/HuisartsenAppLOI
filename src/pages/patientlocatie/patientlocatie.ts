@@ -1,15 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, NgZone, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { FormControl } from "@angular/forms";
+import { } from 'googlemaps';
 
-
-/**
- * Generated class for the PatientlocatiePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -18,61 +13,75 @@ import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 })
 export class PatientlocatiePage {
   
-  locatie: any;
-  showMeH1: boolean = false;
-  showMeCard: boolean = false;
-  hideMe: boolean = true;
-  errorMessage: string = "";
+  public latitude: number;
+  public longitude: number;
+  public searchControl: FormControl;
+  public zoom: number;
+
+  @ViewChild("search")
+  public searchElementRef;
 
 
- // google maps zoom level
-  zoom: number = 16;  
+  constructor(public navCtrl: NavController, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone)  {
 
-  // initial center position for the map
-  lat: number = 52.370216;
-  lng: number = 4.895168;
-  location: string;
-
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private geolocation: Geolocation,
-              public toastCtrl: ToastController) {
-
-    this.locatie = "";
-
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.lat = resp.coords.latitude
-      this.lng = resp.coords.longitude
-     }).catch((error) => {
-       this.errorMessage = 'Error getting location' + error + ' Please try again.';
-       console.log('Error getting location:', error);
-       this.showToast(this.errorMessage);
-     });
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PatientlocatiePage');
-  }
-
-  doGetLocation() {
-    this.locatie = "Stationsweg 1a, Weesp";
-
-    this.showMeH1 = true;
-    this.showMeCard = true;
-    this.hideMe = false;
-    
-  }
-
-
-  showToast(message: string) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      duration: 2000,
-      position: 'middle'
-    });
-
-    toast.present(toast);
-  }
+                this.zoom = 4;
+                this.latitude = 39.8282;
+                this.longitude = -98.5795;
+          
+                //create search FormControl
+                this.searchControl = new FormControl();
+          
+                //set current position
+                this.setCurrentPosition();
+          
+            }
+          
+            ionViewDidLoad() {
+                //set google maps defaults
+                this.zoom = 4;
+                this.latitude = 39.8282;
+                this.longitude = -98.5795;
+          
+                //create search FormControl
+                this.searchControl = new FormControl();
+          
+                //set current position
+                this.setCurrentPosition();
+          
+                //load Places Autocomplete
+                this.mapsAPILoader.load().then(() => {
+                    let nativeHomeInputBox = document.getElementById('txtHome').getElementsByTagName('input')[0];
+                    let autocomplete = new google.maps.places.Autocomplete(nativeHomeInputBox, {
+                        types: ["address"]
+                    });
+                    autocomplete.addListener("place_changed", () => {
+                        this.ngZone.run(() => {
+                            //get the place result
+                            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          
+                            //verify result
+                            if (place.geometry === undefined || place.geometry === null) {
+                                return;
+                            }
+          
+                            //set latitude, longitude and zoom
+                            this.latitude = place.geometry.location.lat();
+                            this.longitude = place.geometry.location.lng();
+                            this.zoom = 12;
+                        });
+                    });
+                });
+            }
+          
+              private setCurrentPosition() {
+                  if ("geolocation" in navigator) {
+                      navigator.geolocation.getCurrentPosition((position) => {
+                          this.latitude = position.coords.latitude;
+                          this.longitude = position.coords.longitude;
+                          this.zoom = 12;
+                      });
+                  }
+              }
 
 }
