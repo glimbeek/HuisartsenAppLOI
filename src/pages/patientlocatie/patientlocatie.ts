@@ -83,5 +83,6 @@ export class PatientlocatiePage {
                       });
                   }
               }
+              
 
 }

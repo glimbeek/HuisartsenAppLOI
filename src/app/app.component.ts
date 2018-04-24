@@ -22,13 +22,15 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      splashScreen.hide();
 
       // This language will be used as a fallback when a translation isn't found in the current language
       this.initTranslate();
-
-
+      // As the app is basicly running in demo mode, we want to set the login to 1234 every time the app starts.
       this.setLoginCode();
+
+      splashScreen.hide();
+
+
     });
   }
 
